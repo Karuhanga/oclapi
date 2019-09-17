@@ -57,7 +57,7 @@ describe('Org', () => {
     });
 
     it('should list only public orgs for anonymous', async () => {
-        const res = await get('orgs/');
+        const res = await get('orgs/?limit=10&verbose=true');
         const json = await res.json();
 
         expect(json).toEqual(expect.arrayContaining([ { id: 'OCL', name: 'Open Concept Lab', url: '/orgs/OCL/' } ]));
